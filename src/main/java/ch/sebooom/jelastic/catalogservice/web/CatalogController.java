@@ -15,7 +15,7 @@ import org.springframework.web.client.RestTemplate;
 @RequestMapping("/catalog/login")
 public class CatalogController {
 
-    @Value("${USERS_ENV_MASTER_IP}")
+    @Value("${USERS_MASTER_IP}")
     private String USERS_URI;
 
     @PostMapping
