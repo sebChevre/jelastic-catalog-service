@@ -15,7 +15,7 @@ public class CatalogController {
 
         RestTemplate restTemplate = new RestTemplate();
         String userResource
-                = "http://http://env-1024481.jcloud.ik-server.com//auth";
+                = "http://env-1024481.jcloud.ik-server.com//auth";
 
         HttpEntity<Login> request = new HttpEntity<>(login);
 
