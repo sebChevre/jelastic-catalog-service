@@ -27,11 +27,15 @@ public class CatalogController {
         String userResource
                 = "http://10.100.2.149:8080/auth";
 
+        log.info(userResource);
+        
         HttpEntity<Login> request = new HttpEntity<>(login);
 
         AuthResult response
                 = restTemplate.postForObject(userResource , request, AuthResult.class);
 
+        log.info(response);
+        
         if(response.getLogin()){
             return ResponseEntity.ok().body(response);
         }else{
