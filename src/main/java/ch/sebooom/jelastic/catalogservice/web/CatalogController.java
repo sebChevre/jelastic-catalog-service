@@ -23,8 +23,7 @@ public class CatalogController {
     @PostMapping
     public ResponseEntity login(@RequestBody Login login){
 
-
-
+        log.info("Service uri: {}",env.getProperty("JAVA_HOME"));
         log.info("Service uri: {}",env.getProperty("USERS_MASTER_IP"));
 
         RestTemplate restTemplate = new RestTemplate();
