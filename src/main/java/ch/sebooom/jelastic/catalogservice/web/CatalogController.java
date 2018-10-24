@@ -25,7 +25,7 @@ public class CatalogController {
         
         RestTemplate restTemplate = new RestTemplate();
         String userResource
-                = "10.100.2.163:8080/auth";
+                = "http://10.100.2.163:8080/auth";
 
         log.info(userResource);
         
