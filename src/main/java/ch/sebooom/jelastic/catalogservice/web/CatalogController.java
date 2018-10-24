@@ -34,7 +34,7 @@ public class CatalogController {
         AuthResult response
                 = restTemplate.postForObject(userResource , request, AuthResult.class);
 
-        log.info(response);
+        log.info(response.toString());
         
         if(response.getLogin()){
             return ResponseEntity.ok().body(response);
