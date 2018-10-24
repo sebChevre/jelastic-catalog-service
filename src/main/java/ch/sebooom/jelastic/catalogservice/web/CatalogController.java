@@ -17,8 +17,7 @@ import org.springframework.web.client.RestTemplate;
 @RequestMapping("/catalog/login")
 public class CatalogController {
 
-    @Autowired
-    private Environment env;
+    
 
     @PostMapping
     public ResponseEntity login(@RequestBody Login login){
@@ -28,7 +27,7 @@ public class CatalogController {
 
         RestTemplate restTemplate = new RestTemplate();
         String userResource
-                = "http://10.100.2.149/auth";
+                = "http://10.100.2.149:8080/auth";
 
         HttpEntity<Login> request = new HttpEntity<>(login);
 
