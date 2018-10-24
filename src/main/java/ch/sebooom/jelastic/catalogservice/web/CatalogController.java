@@ -3,7 +3,9 @@ package ch.sebooom.jelastic.catalogservice.web;
 
 import lombok.extern.log4j.Log4j;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,13 +17,15 @@ import org.springframework.web.client.RestTemplate;
 @RequestMapping("/catalog/login")
 public class CatalogController {
 
-    @Value("${USERS_MASTER_IP}")
-    private String USERS_URI;
+    @Autowired
+    private Environment env;
 
     @PostMapping
     public ResponseEntity login(@RequestBody Login login){
 
-        log.info("Service uri: {}",USERS_URI);
+
+
+        log.info("Service uri: {}",env.getProperty("USERS_MASTER_IP"));
 
         RestTemplate restTemplate = new RestTemplate();
         String userResource
