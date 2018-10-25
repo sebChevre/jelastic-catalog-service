@@ -12,6 +12,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.Properties;
+
 @Slf4j
 @RestController
 @RequestMapping("/catalog/login")
@@ -24,7 +26,8 @@ public class CatalogController {
     public ResponseEntity login(@RequestBody Login login){
 
         log.info("Java Home: {}",System.getenv().values());
-        log.info("Java Home: {}",System.getProperties().values());
+        //log.info("Java Home: {}",System.getProperties().values());
+        showSystemProperties();
         log.info("Java Home: {}",System.getProperties().getProperty("JAVA_HOME"));
         log.info("Java Home: {}",System.getProperty("JAVA_HOME"));
 
@@ -51,6 +54,18 @@ public class CatalogController {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(response);
         }else{
             return ResponseEntity.ok().body(response);
+        }
+
+    }
+
+    private void showSystemProperties(){
+
+        Properties props = System.getProperties();
+
+        while(props.keys().hasMoreElements()){
+            String prop = (String) props.keys().nextElement();
+
+            log.info("{}:{})",prop,props.getProperty(prop));
         }
 
     }
