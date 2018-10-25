@@ -23,9 +23,14 @@ public class CatalogController {
     @PostMapping
     public ResponseEntity login(@RequestBody Login login){
 
-        log.info("Users Service uri: {}",System.getenv("JAVA_HOME"));
-        log.info("Users Service uri: {}",System.getProperties().getProperty("JAVA_HOME"));
-        log.info("Service uri: {}",env.getProperty("$USERS_MASTER_IP"));
+        log.info("Java Home: {}",System.getenv("JAVA_HOME"));
+        log.info("Java Home: {}",System.getProperties().getProperty("JAVA_HOME"));
+        log.info("Java Home: {}",System.getProperty("JAVA_HOME"));
+
+        log.info("Java Home: {}",env.getProperty("JAVA_HOME"));
+        log.info("Java Home: {}",env.getRequiredProperty("JAVA_HOME"));
+
+
 
         RestTemplate restTemplate = new RestTemplate();
         String userResource
