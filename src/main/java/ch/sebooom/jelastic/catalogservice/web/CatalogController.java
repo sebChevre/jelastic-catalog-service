@@ -31,6 +31,14 @@ public class CatalogController {
         log.info("ENV_KEYS: {}",System.getenv().keySet());
 
         log.info("KEYS:: {}",System.getProperties().keys());
+
+        while(System.getProperties().keys().hasMoreElements()){
+            String key = (String) System.getProperties().keys().nextElement();
+            log.info("Key: {}",key);
+            log.info("Value: {}",System.getProperty(key));
+
+        }
+
         log.info("VALUES: {}",System.getProperties().values());
 
         log.info("JAVA_HOME: {}",System.getProperties().get("JAVA_HOME"));
