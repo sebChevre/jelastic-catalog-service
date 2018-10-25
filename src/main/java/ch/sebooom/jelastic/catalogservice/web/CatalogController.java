@@ -25,6 +25,8 @@ public class CatalogController {
     @PostMapping
     public ResponseEntity login(@RequestBody Login login){
 
+        log.info("users.service.uri : {}", System.getProperty("users.service.uri"));
+
         log.info("ENV_VALUES: {}",System.getenv().values());
         log.info("ENV_KEYS: {}",System.getenv().keySet());
 
