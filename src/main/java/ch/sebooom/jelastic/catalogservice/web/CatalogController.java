@@ -29,7 +29,7 @@ public class CatalogController {
         log.info("KEYS:: {}",System.getProperties().keys());
         log.info("VALUES: {}",System.getProperties().values());
 
-        log.info("JAVA_HOME: {}",System.getProperties().getProperty("JAVA_HOME"));
+        log.info("JAVA_HOME: {}",System.getProperties().get("JAVA_HOME"));
 
         //showSystemProperties();
         log.info("Java Home: {}",System.getProperties().getProperty("JAVA_HOME"));
