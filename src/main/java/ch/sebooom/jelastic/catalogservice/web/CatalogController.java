@@ -28,20 +28,23 @@ public class CatalogController {
 
         RestTemplate restTemplate = new RestTemplate();
         String userResource
-                = "http://10.100.2.149/auth";
+                = "http://localhost:8082/auth";
 
         HttpEntity<Login> request = new HttpEntity<>(login);
+        AuthResult response = null;
 
-        AuthResult response
-                = restTemplate.postForObject(userResource , request, AuthResult.class);
-
-        if(response.getLogin()){
-            return ResponseEntity.ok().body(response);
-        }else{
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(response);
+        try{
+            response
+                    = restTemplate.postForObject(userResource , request, AuthResult.class);
+        }catch(Exception e){
+            log.error("erreur: {}",e.getMessage());
         }
 
-
+        if(response == null || !response.getLogin()){
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(response);
+        }else{
+            return ResponseEntity.ok().body(response);
+        }
 
     }
 
