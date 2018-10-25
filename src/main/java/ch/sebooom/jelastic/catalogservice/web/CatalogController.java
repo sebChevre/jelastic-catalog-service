@@ -26,8 +26,11 @@ public class CatalogController {
     public ResponseEntity login(@RequestBody Login login){
 
         log.info("Java Home: {}",System.getenv().values());
-        log.info("Java Home: {}",System.getProperties().keys());
-        log.info("Java Home: {}",System.getProperties().values());
+        log.info("KEYS:: {}",System.getProperties().keys());
+        log.info("VALUES: {}",System.getProperties().values());
+
+        log.info("JAVA_HOME: {}",System.getProperties().getProperty("JAVA_HOME"));
+
         //showSystemProperties();
         log.info("Java Home: {}",System.getProperties().getProperty("JAVA_HOME"));
         log.info("Java Home: {}",System.getProperty("JAVA_HOME"));
