@@ -28,7 +28,7 @@ public class CatalogController {
 
         RestTemplate restTemplate = new RestTemplate();
         String userResource
-                = "http://10.100.2.163/auth";
+                = "http://10.100.2.164/auth";
 
         HttpEntity<Login> request = new HttpEntity<>(login);
         AuthResult response = null;
