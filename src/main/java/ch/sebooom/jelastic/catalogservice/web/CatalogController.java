@@ -24,7 +24,7 @@ public class CatalogController {
     public ResponseEntity login(@RequestBody Login login){
 
         log.info("Users Service uri: {}",System.getenv("JAVA_HOME"));
-        log.info("Users Service uri: {}",System.getProperty("JAVA_HOME"));
+        log.info("Users Service uri: {}",System.getProperties().getProperty("JAVA_HOME"));
         log.info("Service uri: {}",env.getProperty("$USERS_MASTER_IP"));
 
         RestTemplate restTemplate = new RestTemplate();
